@@ -1,3 +1,3 @@
-This is a simple starter using Next.js and Redux Toolkit.
+This is a simple movies info directory using Next.js, Redux Toolkit and TMDB api.
 
 [Demo](https://nextjs-redux-toolkit-starter.vercel.app/)
