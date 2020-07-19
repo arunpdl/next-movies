@@ -23,12 +23,12 @@ const MoviesComponent = () => {
           {popularMovies?.results?.map((eachMovie) => (
             <Link href={`/movies/${eachMovie.id}`} key={eachMovie.id}>
               <a>
-                <div className="card transition duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:border-secondary-200">
+                <div className="card transition duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:border-secondary-200 w-5/6 h-full">
                   <div className="relative">
                     <img
-                      src={`https://image.tmdb.org/t/p/w440_and_h660_face/${eachMovie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${eachMovie.poster_path}`}
                       alt="pop_movie"
-                      className="object-contain"
+                      className="object-cover"
                     />
                     <div className="badge">
                       <span>

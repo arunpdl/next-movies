@@ -8,7 +8,7 @@ body {
 }
 
 .card {
-  @apply bg-white rounded overflow-hidden shadow-md relative max-w-sm cursor-pointer;
+  @apply bg-white rounded overflow-hidden shadow-md relative cursor-pointer;
 }
 
 .badge {
