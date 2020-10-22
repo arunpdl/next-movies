@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         body: ["Nunito"],
       },
+      inset: {
+        "-45": "-45px",
+      },
     },
   },
   variants: {},

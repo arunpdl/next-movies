@@ -50,11 +50,11 @@ const MovieDetailComponent = ({ movieDetail, loading, error }) => {
               </div>
               <div className="my-5">
                 <div className="font-bold">Cast</div>
-                <div className="flex justify-start mt-5 ">
+                <div className="flex justify-start mt-5 flex-wrap">
                   {movieDetail?.cast?.map((eachCast) => (
                     <span
                       key={eachCast.id}
-                      className="p-1 mx-1 rounded border border-white-100 text-xs text-center tooltip"
+                      className="p-2 mx-1 my-2 rounded border border-white-100 text-xs text-center whitespace-no-wrap tooltip cursor-pointer relative"
                     >
                       {eachCast.name}
                       <span className="tooltip-text">{eachCast.character}</span>
