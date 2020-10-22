@@ -12,7 +12,7 @@ body {
 }
 
 .badge {
-  @apply bg-secondary-100 text-white text-xs uppercase font-bold rounded-full p-2 absolute bottom-0 right-0 mr-2 mb-2;
+  @apply bg-secondary-100 text-white text-sm uppercase font-bold rounded-full p-2 absolute bottom-0 right-0 mr-2 mb-2;
 }
 
 .btn {

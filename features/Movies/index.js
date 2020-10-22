@@ -19,14 +19,14 @@ const MoviesComponent = () => {
         <h4 className="font-bold text-primaryLight mt-12 border-b border-gray-300">
           Popular Movies
         </h4>
-        <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 sm:justify-center">
+        <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:justify-center">
           {popularMovies?.results?.map((eachMovie) => (
             <Link href={`/movies/${eachMovie.id}`} key={eachMovie.id}>
               <a>
-                <div className="card transition duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:border-secondary-200 w-5/6 h-full">
+                <div className="card w-300px bg-secondary-200">
                   <div className="relative">
                     <img
-                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${eachMovie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w400${eachMovie.poster_path}`}
                       alt="pop_movie"
                       className="object-cover"
                     />
