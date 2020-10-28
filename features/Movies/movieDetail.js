@@ -1,23 +1,28 @@
 import React from "react";
+import Image from "next/image";
 
 const MovieDetailComponent = ({ movieDetail, loading, error }) => {
-  // console.log(">>>", movieDetail);
+  console.log(">>>", movieDetail);
 
   return (
     <div className="mt-20 h-screen">
       <div
-        className="bg-no-repeat bg-cover shadow-inner text-white"
-        // style={{
-        //   backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movieDetail?.backdrop_path})`,
-        // }}
+        className="bg-no-repeat bg-cover shadow-inner text-white relative"
+        style={{
+          backgroundImage: `linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    ), url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movieDetail?.backdrop_path})`,
+        }}
       >
-        {/* <div className="absolute w-full h-full top-0 left-0 right-0 bottom-0 bg-black opacity-75 z-0"> */}
         <div className="sm:flex sm:justify-start">
           <div className="relative">
             <div className="card">
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movieDetail?.poster_path}`}
-                alt="movie-poster"
+                alt={movieDetail?.title}
+                width={300}
+                height={450}
               />
             </div>
             <div className="badge bottom-0 right-0 mr-2 mt-2">
@@ -42,7 +47,7 @@ const MovieDetailComponent = ({ movieDetail, loading, error }) => {
                 {movieDetail?.genres?.map((eachGenre) => (
                   <span
                     key={eachGenre.id}
-                    className="p-1 mx-1 rounded border border-secondary-100 text-xs"
+                    className="p-1 mx-1 rounded border border-secondary-100 text-xs cursor-default"
                   >
                     {eachGenre.name}
                   </span>
@@ -57,7 +62,9 @@ const MovieDetailComponent = ({ movieDetail, loading, error }) => {
                       className="p-2 mx-1 my-2 rounded border border-white-100 text-xs text-center whitespace-no-wrap tooltip cursor-pointer relative"
                     >
                       {eachCast.name}
-                      <span className="tooltip-text">{eachCast.character}</span>
+                      <span className="tooltip-text">
+                        {eachCast.character || "Unnamed"}
+                      </span>
                     </span>
                   ))}
                 </div>
