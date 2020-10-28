@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSelector } from "react-redux";
 import { selectMovies } from "./moviesSlice";
 
@@ -28,10 +29,12 @@ const MoviesComponent = () => {
                     <div className="card bg-secondary-200 card-front">
                       <div className="h-full w-full">
                         <div className="relative">
-                          <img
+                          <Image
                             src={`https://image.tmdb.org/t/p/w400${eachMovie.poster_path}`}
-                            alt="pop_movie"
+                            alt={eachMovie.title}
                             className="object-cover"
+                            height={560}
+                            width={325}
                           />
                           <div className="badge">
                             <span>
