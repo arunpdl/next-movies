@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { selectMovies } from "./moviesSlice";
@@ -23,26 +23,38 @@ const MoviesComponent = () => {
           {popularMovies?.results?.map((eachMovie) => (
             <Link href={`/movies/${eachMovie.id}`} key={eachMovie.id}>
               <a>
-                <div className="card w-300px bg-secondary-200">
-                  <div className="relative">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w400${eachMovie.poster_path}`}
-                      alt="pop_movie"
-                      className="object-cover"
-                    />
-                    <div className="badge">
-                      <span>
-                        {parseFloat(eachMovie.vote_average).toFixed(1)}
-                      </span>
+                <div className="card-parent w-300px">
+                  <div className="card-inner">
+                    <div className="card bg-secondary-200 card-front">
+                      <div className="h-full w-full">
+                        <div className="relative">
+                          <img
+                            src={`https://image.tmdb.org/t/p/w400${eachMovie.poster_path}`}
+                            alt="pop_movie"
+                            className="object-cover"
+                          />
+                          <div className="badge">
+                            <span>
+                              {parseFloat(eachMovie.vote_average).toFixed(1)}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="m-4">
+                          <span className="text-primaryDark font-bold">
+                            {eachMovie.title.slice(0, 30)}
+                          </span>
+                          <span className="block text-xs text-black">
+                            {new Date(eachMovie.release_date).getFullYear()}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="m-4">
-                    <span className="text-primaryDark font-bold">
-                      {eachMovie.title.slice(0, 30)}
-                    </span>
-                    <span className="block text-xs text-black">
-                      {new Date(eachMovie.release_date).getFullYear()}
-                    </span>
+                    <div className="card bg-secondary-200 card-back h-full w-full">
+                      <div className="p-5">
+                        <div className="font-semibold text-lg">Synopsis:</div>
+                        <div>{eachMovie?.overview}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </a>

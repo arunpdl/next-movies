@@ -8,7 +8,7 @@ body {
 }
 
 .card {
-  @apply bg-white rounded overflow-hidden shadow-md relative cursor-pointer;
+  @apply bg-white rounded overflow-hidden shadow-md cursor-pointer;
 }
 
 .badge {
@@ -34,3 +34,29 @@ body {
 }
 
 @import "tailwindcss/utilities";
+
+.card-parent {
+  perspective: 1000px;
+}
+
+.card-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card-parent:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-back {
+  position: absolute;
+  top: 0px;
+  transform: rotateY(180deg);
+}
